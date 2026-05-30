@@ -14,11 +14,11 @@ export class AlumnoModel extends PersonaModel {
     modificacion: string = new Date().toISOString().split('T')[0],
     isActive: boolean = true
   ) {
-    super(nombre, apellido, email);
-      (this.legajo = legajo);
-      (this.fechaAlta = fechaAlta);
-      (this.modificacion = modificacion);
-      (this.isActive = isActive);
+    super(nombre, apellido, email)
+    this.legajo = legajo
+    this.fechaAlta = fechaAlta
+    this.modificacion = modificacion
+    this.isActive = isActive
   }
 
   // Polimorfismo
