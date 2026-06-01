@@ -107,7 +107,11 @@ const postNewAlumno = async (req, res) => {
     const alumnoNuevo = nuevoAlumno.getAllAttributes()
     alumnos.push(alumnoNuevo)
 
-    fs.writeFile('./data/alumnos.json', JSON.stringify(alumnos, null, 2), 'utf8')
+    fs.writeFile(
+      './data/alumnos.json',
+      JSON.stringify(alumnos, null, 2),
+      'utf8'
+    )
 
     return res.status(200).json({
       msg: `Se agrego el alumno nuevo con el legajo n° ${nuevoLegajo}`,
