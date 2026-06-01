@@ -1,5 +1,5 @@
 {
-  "name": "tp3",
+  "name": "tp4",
   "version": "1.0.0",
   "description": "grupo0",
   "homepage": "https://github.com/AndresAguay0/trabajo-practico-4#readme",
@@ -11,12 +11,12 @@
     "url": "git+https://github.com/AndresAguay0/trabajo-practico-4.git"
   },
   "license": "MIT",
-  "author": "",
+  "author": "Andrés Aguayo, Fabricio Maida, Ailén Villalba, Alesio Cragno, Valentina Vitale",
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Tests OK\"",
-    "start": "ts-node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon --exec ts-node app.js",
     "dev": "nodemon --exec ts-node app.js",
     "lint": "npx standard",
     "fix": "npx standard --fix",
