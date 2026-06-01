@@ -163,7 +163,7 @@ Retorna un void.
 
 ## Documentación con ‘Postman’ de todos los métodos (GET, PUT, DELETE, POST).
 
-> -
+> https://documenter.getpostman.com/view/50244766/2sBXwnusP6
 
 ## Ejemplo de estructura JSON
 
