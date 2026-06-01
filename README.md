@@ -1,5 +1,3 @@
-# Documentación
-
 # TRABAJO PRÁCTICO 4 - GRUPO 18
 
 #### Integrantes:
@@ -10,10 +8,11 @@
 > - Valentina Vitale
 > - Alesio Cragno
 
-### Nombre del proyecto y su descripción.
+## Alumnos API REST.
 
-> Alumnos API REST
-> Sistema de Gestion de alumnos con sus respectivos datos (legajo, nombre, apellido, email, fechaAlta, modificacion y si esta activo).
+> Sistema de Gestion de alumnos con sus respectivos datos (legajo, nombre, apellido, email, fechaAlta, modificacion y si esta activo).  
+
+---
 
 ### Metodología de trabajo con Git y GitHub.
 
@@ -22,61 +21,85 @@ Se utilizó Git para el control de versiones y GitHub para el trabajo colaborati
 Flujo de trabajo:
 
 1. Creación de ramas individuales para cada integrante.
-2. Desarrollo de funcionalidades en ramas secundarias.
+2. Desarrollo de funcionalidades en ramas de integrantes.
 3. Creación de Pull Requests.
 4. Revisión de código.
 5. Integración a la rama principal (main).
 
-### División de los archivos entre los integrantes.
 
-> Valentina Vitale y Alesio Cragno: alumno.model.ts, PUT en alumno.controller.js, rutas de PUT en alumno.routes.js y alumno-validator.middleware.js.
+## División de los archivos entre los integrantes.
 
-### Distribución de los archivos y carpetas.
+> **Valentina Vitale y Alesio Cragno**:  
+> - Implementacion de clase alumno en alumno.model.ts
+> - PUT en alumno.controller.js
+> - Rutas de PUT en alumno.routes.js
+> - Implementacion de middleware en alumno-validator.middleware.js.
 
-# controllers
+> **Andres Aguayo**:  
+> - POST en alumno.controller.js
+> - Rutas de POST en alumno.routes.js
+> - Renderización y Dockerización
+
+## Distribución de los archivos y carpetas.
+
+### controllers
 
 - alumno.controller.js: gestiona las funciones de alumnos.
 
-# core
+---
+
+### core
 
 Contiene la configuración principal del servidor.
 
 - server.js: inicializa y configura el servidor.
 
-# data
+---
+
+### data
 
 Contiene archivos de datos utilizados por la aplicación (JSON).
 
-# middleware
+---
+
+### middleware
 
 Contiene funciones intermedias que se ejecutan antes de llegar a los controladores.
 
 - alumno-validator.middleware.js: valida los datos recibidos para alumnos.
 
-# models
+---
+
+### models
 
 Define las estructuras de datos de la aplicación.
 
 - alumno.model.ts: modelo de Alumno.
 - persona.model.ts: modelo base Persona.
 
-# routes
+---
+
+### routes
 
 Define las rutas de la API.
 
 - alumno.routes.js: endpoints relacionados con alumnos.
 
-# package.json
+---
+
+### package.json
 
 Dependencias y scripts del proyecto.
 
-# tsconfig.json
+---
+
+### tsconfig.json
 
 Configuración de TypeScript.
 
-### Un 90% de las funciones explicadas a detalle.
+## FUNCIONES
 
-# Constructor AlumnoModel()
+### Constructor AlumnoModel()
 
 Crea una nueva instancia de un alumno heredando los atributos de PersonaModel.
 Parámetros:
@@ -89,27 +112,27 @@ Parámetros:
 - modificacion (string): fecha de última modificación.
 - isActive (boolean): indica si el alumno está activo.
 
-# getAllAttributes()
+### getAllAttributes()
 
 Sobrescribe (override) el método heredado de PersonaModel mediante polimorfismo.
 Retorna un objeto con todos los atributos del alumno.
 
-# getLegajo()
+### getLegajo()
 
 Obtiene el número de legajo del alumno.
 Retorna un number.
 
-# getFechaAlta()
+### getFechaAlta()
 
 Obtiene la fecha de alta del alumno.
 Retorna un string.
 
-# getModificacion()
+### getModificacion()
 
 Obtiene la fecha de la última modificación realizada sobre el alumno.
 Retorna un string.
 
-# setModificacion(modificacion)
+### setModificacion(modificacion)
 
 Actualiza la fecha de modificación del alumno.
 Parámetros:
@@ -117,12 +140,12 @@ Parámetros:
 - modificacion (string): nueva fecha de modificación.
   Retorna void.
 
-# getIsActive()
+### getIsActive()
 
 Indica si el alumno se encuentra activo.
 Retorna un booleano.
 
-# setIsActive(isActive)
+### setIsActive(isActive)
 
 Permite activar o desactivar lógicamente un alumno.
 
@@ -132,20 +155,24 @@ Parámetros:
 
 Retorna un void.
 
-### Documentación con ‘Postman’ de todos los métodos (GET, PUT, DELETE, POST).
+## Documentación con ‘Postman’ de todos los métodos (GET, PUT, DELETE, POST).
 
-### Mínimo un ejemplo de la estructura de cada archivo JSON utilizado (no integrar varios “arrays” en un mismo archivo).
+> -
 
-# alumnos.json:
+## Ejemplo de estructura JSON
 
-{
-"legajo": 10001,
-"nombre": "Mora",
-"apellido": "García",
-"email": "m.garcia@facultad.edu.ar",
-"fechaAlta": "2026-03-02",
-"modificacion": "2026-03-02",
-"isActive": true
+### alumnos.json:
+
+>{  
+"legajo": 10001,  
+"nombre": "Mora",  
+"apellido": "García",  
+"email": "m.garcia@facultad.edu.ar",  
+"fechaAlta": "2026-03-02",  
+"modificacion": "2026-03-02",  
+"isActive": true  
 }
 
-### Link del deploy en Render.
+## Link del deploy en Render.
+
+> https://trabajo-practico-4.onrender.com
