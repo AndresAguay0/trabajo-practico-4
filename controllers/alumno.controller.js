@@ -129,8 +129,8 @@ const deleteAlumnoById = async (req, res) => {
 
     console.log("Se parseo la informacion a 'alumnos'")
 
-    const index= alumnos.findIndex(
-      (alumno) => alumno.legajo === Number(legajo)
+    const index = alumnos.findIndex(
+      (alumno) => (alumno.legajo) === Number(legajo)
     )
 
     if (index === -1) {
