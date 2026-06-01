@@ -223,14 +223,5 @@
     "fechaAlta": "2026-05-14",
     "modificacion": "2026-05-14",
     "isActive": true
-  },
-  {
-    "legajo": 10026,
-    "nombre": "Alan",
-    "apellido": "Lopez",
-    "email": "alanlopez@facultad.edu.ar",
-    "fechaAlta": "2026-06-01",
-    "modificacion": "2026-06-01",
-    "isActive": true
   }
 ]
