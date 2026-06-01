@@ -14,7 +14,7 @@ class Server {
     this.app.use(cors())
     this.app.use(express.json())
   }
-  
+
   rutas () {
     this.app.use('/alumnos', require('../routes/alumno.routes'))
     /*
