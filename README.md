@@ -43,7 +43,7 @@ Flujo de trabajo:
 
 > **Ailén Villalba y Fabricio Maida**:
 >
-> - DELTETE en alumno.controller.js
+> - DELETE en alumno.controller.js
 > - Rutas de DELETE en alumno.routes.js
 
 ## Distribución de los archivos y carpetas.
