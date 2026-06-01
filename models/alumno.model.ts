@@ -1,0 +1,69 @@
+import { PersonaModel } from './persona.model'
+
+export class AlumnoModel extends PersonaModel {
+  private legajo: number
+  private fechaAlta: string = new Date().toISOString().split('T')[0]
+  private modificacion: string = new Date().toISOString().split('T')[0]
+  private isActive: boolean = true
+  constructor(
+    legajo: number,
+    nombre: string,
+    apellido: string,
+    email: string,
+    fechaAlta: string = new Date().toISOString().split('T')[0],
+    modificacion: string = new Date().toISOString().split('T')[0],
+    isActive: boolean = true
+  ) {
+    super(nombre, apellido, email)
+    this.legajo = legajo
+    this.fechaAlta = fechaAlta
+    this.modificacion = modificacion
+    this.isActive = isActive
+  }
+
+  // Polimorfismo
+  public override getAllAttributes(): {
+    legajo: number
+    nombre: string
+    apellido: string
+    email: string
+    fechaAlta: string
+    modificacion: string
+    isActive: boolean
+  } {
+    return {
+      legajo: this.legajo,
+      nombre: this.nombre,
+      apellido: this.apellido,
+      email: this.email,
+      fechaAlta: this.fechaAlta,
+      modificacion: this.modificacion,
+      isActive: this.isActive
+    }
+  }
+
+  //Getters y Setters
+  public getLegajo(): number {
+    return this.legajo
+  }
+
+  public getFechaAlta(): string {
+    return this.fechaAlta
+  }
+
+  public getModificacion(): string {
+    return this.modificacion
+  }
+
+  public setModificacion(modificacion: string): void {
+    this.modificacion = modificacion
+  }
+
+  public getIsActive(): boolean {
+    return this.isActive
+  }
+
+  public setIsActive(isActive: boolean): void {
+    this.isActive = isActive
+  }
+}

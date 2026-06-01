@@ -3,19 +3,24 @@ const cors = require('cors')
 require('dotenv').config()
 
 class Server {
-  constructor () {
+  constructor() {
     this.app = express()
     this.port = process.env.PORT || 3000
     this.middleware()
     this.rutas()
   }
 
-  middleware () {
+  middleware() {
     this.app.use(cors())
     this.app.use(express.json())
+    // logging de peticiones
+    this.app.use((req, res, next) => {
+      console.log(new Date().toISOString(), req.method, req.url)
+      next()
+    })
   }
 
-  rutas () {
+  rutas() {
     this.app.use('/alumnos', require('../routes/alumno.routes'))
     /*
     this.app.use('/materias', require('../routes/extra/materia.routes'))
@@ -23,23 +28,19 @@ class Server {
     this.app.use('/profesores', require('../routes/extra/profesor.routes'))
     */
 
-    // manejo de errores
     this.app.use((req, res, next) => {
-      return res.status(400).json({ msg: 'Error.' })
-    })
-    this.app.use((err, req, res, next) => {
-      console.error(err.stack)
       return res.status(404).json({ msg: 'Error. Pagina no encontrada' })
     })
+
     this.app.use((err, req, res, next) => {
       console.error(err.stack)
       return res.status(500).json({ msg: 'Internal Server Error' })
     })
   }
 
-  listen () {
+  listen() {
     this.app.listen(this.port, () => {
-      console.log(`La API esta escuchando el el puerto: ${this.port}`)
+      console.log(`La API esta escuchando el puerto: ${this.port}`)
     })
   }
 }
