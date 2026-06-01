@@ -142,8 +142,19 @@ const deleteAlumnoById = async (req, res) => {
         msg: `No se encontró el alumno con legajo n° ${legajo}`
       })
     }
-    
+    const AlEncontrado = alumnos[index]
     alumnos.splice(index, 1)
+
+    await fs.writeFile(
+      './data/alumnos.json',
+      JSON.stringify(alumnos, null, 2),
+      'utf8'
+    )
+
+    return res.status(200).json({
+      msg: `Se eliminó correctamente el alumno con el legajo n° ${AlEncontrado.legajo}`,
+      alumno: AlEncontrado
+    })
 
   } catch (error) {
     return res.status(500).json({
