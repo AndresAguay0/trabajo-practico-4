@@ -11,7 +11,7 @@ const rutas = Router()
 
 rutas.get('/', getAlumnoAll)
 rutas.get('/:legajo', getAlumnoById)
-rutas.post('/', postNewAlumno)
+rutas.post('/', alumnoValidator, postNewAlumno)
 rutas.put('/:legajo', alumnoValidator, putAlumnoById)
 
 module.exports = rutas
