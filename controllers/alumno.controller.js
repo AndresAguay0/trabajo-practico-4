@@ -124,4 +124,32 @@ const postNewAlumno = async (req, res) => {
   }
 }
 
-module.exports = { getAlumnoAll, getAlumnoById, putAlumnoById, postNewAlumno }
+const deleteAlumnoById = async (req, res) => {
+  try {
+    const { legajo } = req.params
+
+    const data = await fs.readFile('./data/alumnos.json', 'utf8')
+    const alumnos = JSON.parse(data)
+
+    console.log("Se parseo la informacion a 'alumnos'")
+
+    const index= alumnos.findIndex(
+      (alumno) => alumno.legajo === Number(legajo)
+    )
+
+    if (index === -1) {
+      return res.status(404).json({
+        msg: `No se encontró el alumno con legajo n° ${legajo}`
+      })
+    }
+    
+    alumnos.splice(index, 1)
+
+  } catch (error) {
+    return res.status(500).json({
+      error: 'No se pudo eliminar el alumno.'
+    })
+  }
+}
+
+module.exports = { getAlumnoAll, getAlumnoById, putAlumnoById, postNewAlumno, deleteAlumnoById }
