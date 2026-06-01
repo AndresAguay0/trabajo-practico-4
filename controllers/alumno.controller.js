@@ -87,11 +87,10 @@ const putAlumnoById = async (req, res) => {
 }
 
 const postNewAlumno = async (req, res) => {
-  
   try {
     const { nombre, apellido, email } = req.body
 
-    const data = await fs.readFile("./data/alumnos.json", "utf8")
+    const data = await fs.readFile('./data/alumnos.json', 'utf8')
     const alumnos = JSON.parse(data)
 
     console.log("Se parseo la informacion a 'alumnos'")
@@ -101,22 +100,22 @@ const postNewAlumno = async (req, res) => {
 
     console.log(`Nuevo legajo generado: ${nuevoLegajo}`)
 
-    const nuevoAlumno = new AlumnoModel (nuevoLegajo, nombre, apellido, email)
+    const nuevoAlumno = new AlumnoModel(nuevoLegajo, nombre, apellido, email)
 
     console.log(nuevoAlumno.getAllAttributes())
 
     const alumnoNuevo = nuevoAlumno.getAllAttributes()
     alumnos.push(alumnoNuevo)
-    
-    fs.writeFile("./data/alumnos.json", JSON.stringify(alumnos, null, 2), "utf8")
+
+    fs.writeFile('./data/alumnos.json', JSON.stringify(alumnos, null, 2), 'utf8')
 
     return res.status(200).json({
       msg: `Se agrego el alumno nuevo con el legajo n° ${nuevoLegajo}`,
-      alumnoNuevo: alumnoNuevo
+      alumnoNuevo
     })
   } catch (error) {
     return res.status(500).json({
-      error: `No se pudo dar de alta el alumno`
+      error: 'No se pudo dar de alta el alumno'
     })
   }
 }
