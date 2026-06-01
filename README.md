@@ -10,7 +10,7 @@
 
 ## Alumnos API REST.
 
-> Sistema de Gestion de alumnos con sus respectivos datos (legajo, nombre, apellido, email, fechaAlta, modificacion y si esta activo).  
+> Sistema de Gestion de alumnos con sus respectivos datos (legajo, nombre, apellido, email, fechaAlta, modificacion y si esta activo).
 
 ---
 
@@ -26,19 +26,25 @@ Flujo de trabajo:
 4. Revisión de código.
 5. Integración a la rama principal (main).
 
-
 ## División de los archivos entre los integrantes.
 
-> **Valentina Vitale y Alesio Cragno**:  
+> **Valentina Vitale y Alesio Cragno**:
+>
 > - Implementacion de clase alumno en alumno.model.ts
 > - PUT en alumno.controller.js
 > - Rutas de PUT en alumno.routes.js
 > - Implementacion de middleware en alumno-validator.middleware.js.
 
-> **Andres Aguayo**:  
+> **Andres Aguayo**:
+>
 > - POST en alumno.controller.js
 > - Rutas de POST en alumno.routes.js
 > - Renderización y Dockerización
+
+> **Ailén Villalba y Fabricio Maida**:
+>
+> - DELTETE en alumno.controller.js
+> - Rutas de DELETE en alumno.routes.js
 
 ## Distribución de los archivos y carpetas.
 
@@ -163,15 +169,15 @@ Retorna un void.
 
 ### alumnos.json:
 
->{  
-"legajo": 10001,  
-"nombre": "Mora",  
-"apellido": "García",  
-"email": "m.garcia@facultad.edu.ar",  
-"fechaAlta": "2026-03-02",  
-"modificacion": "2026-03-02",  
-"isActive": true  
-}
+> {  
+> "legajo": 10001,  
+> "nombre": "Mora",  
+> "apellido": "García",  
+> "email": "m.garcia@facultad.edu.ar",  
+> "fechaAlta": "2026-03-02",  
+> "modificacion": "2026-03-02",  
+> "isActive": true  
+> }
 
 ## Link del deploy en Render.
 
