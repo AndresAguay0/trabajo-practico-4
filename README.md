@@ -161,6 +161,18 @@ Parámetros:
 
 Retorna un void.
 
+### alumno.controller.js
+
+_PUT:_ Actualiza un alumno por legajo. Lee alumnos.json, busca por legajo, modifica sólo los campos recibidos (nombre, apellido, email, isActive), escribe el archivo y devuelve 200 con el alumno modificado. Si no existe devuelve 404 y en error de server devuelve 500.
+
+_POST:_ Crea un nuevo alumno. Lee alumnos.json, calcula un legajo nuevo (max + 1), instancia AlumnoModel, agrega el alumno al arreglo, escribe el archivo y responde 200 con el alumno creado. En error devuelve 500.
+
+_DELETE:_ Elimina un alumno por legajo. Lee alumnos.json, busca el índice, elimina el elemento del arreglo, escribe el archivo y devuelve 200 con el alumno eliminado. Si no existe devuelve 404 y en error devuelve 500.
+
+### alumno-validator.middleware.js
+
+alumnoValidator — Valida req.body para los campos nombre, apellido, email (deben ser string) y isActive (debe ser boolean). Si hay errores devuelve 400 con { msg: 'Datos de petición inválidos', errors: [...] }, si no, llama a next() para continuar con el manejador.
+
 ## Documentación con ‘Postman’ de todos los métodos (GET, PUT, DELETE, POST).
 
 > https://documenter.getpostman.com/view/50244766/2sBXwnusP6
