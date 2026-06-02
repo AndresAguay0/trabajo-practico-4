@@ -10,7 +10,7 @@
 
 ## Alumnos API REST.
 
-> Sistema de Gestion de alumnos con sus respectivos datos (legajo, nombre, apellido, email, fechaAlta, modificacion y si esta activo).  
+> Sistema de Gestion de alumnos con sus respectivos datos (legajo, nombre, apellido, email, fechaAlta, modificacion y si esta activo).
 
 ---
 
@@ -26,19 +26,25 @@ Flujo de trabajo:
 4. Revisión de código.
 5. Integración a la rama principal (main).
 
-
 ## División de los archivos entre los integrantes.
 
-> **Valentina Vitale y Alesio Cragno**:  
+> **Valentina Vitale y Alesio Cragno**:
+>
 > - Implementacion de clase alumno en alumno.model.ts
 > - PUT en alumno.controller.js
 > - Rutas de PUT en alumno.routes.js
 > - Implementacion de middleware en alumno-validator.middleware.js.
 
-> **Andres Aguayo**:  
+> **Andres Aguayo**:
+>
 > - POST en alumno.controller.js
 > - Rutas de POST en alumno.routes.js
 > - Renderización y Dockerización
+
+> **Ailén Villalba y Fabricio Maida**:
+>
+> - DELETE en alumno.controller.js
+> - Rutas de DELETE en alumno.routes.js
 
 ## Distribución de los archivos y carpetas.
 
@@ -155,23 +161,35 @@ Parámetros:
 
 Retorna un void.
 
+### alumno.controller.js
+
+_PUT:_ Actualiza un alumno por legajo. Lee alumnos.json, busca por legajo, modifica sólo los campos recibidos (nombre, apellido, email, isActive), escribe el archivo y devuelve 200 con el alumno modificado. Si no existe devuelve 404 y en error de server devuelve 500.
+
+_POST:_ Crea un nuevo alumno. Lee alumnos.json, calcula un legajo nuevo (max + 1), instancia AlumnoModel, agrega el alumno al arreglo, escribe el archivo y responde 200 con el alumno creado. En error devuelve 500.
+
+_DELETE:_ Elimina un alumno por legajo. Lee alumnos.json, busca el índice, elimina el elemento del arreglo, escribe el archivo y devuelve 200 con el alumno eliminado. Si no existe devuelve 404 y en error devuelve 500.
+
+### alumno-validator.middleware.js
+
+alumnoValidator — Valida req.body para los campos nombre, apellido, email (deben ser string) y isActive (debe ser boolean). Si hay errores devuelve 400 con { msg: 'Datos de petición inválidos', errors: [...] }, si no, llama a next() para continuar con el manejador.
+
 ## Documentación con ‘Postman’ de todos los métodos (GET, PUT, DELETE, POST).
 
-> -
+> https://documenter.getpostman.com/view/50244766/2sBXwnusP6
 
 ## Ejemplo de estructura JSON
 
 ### alumnos.json:
 
->{  
-"legajo": 10001,  
-"nombre": "Mora",  
-"apellido": "García",  
-"email": "m.garcia@facultad.edu.ar",  
-"fechaAlta": "2026-03-02",  
-"modificacion": "2026-03-02",  
-"isActive": true  
-}
+> {  
+> "legajo": 10001,  
+> "nombre": "Mora",  
+> "apellido": "García",  
+> "email": "m.garcia@facultad.edu.ar",  
+> "fechaAlta": "2026-03-02",  
+> "modificacion": "2026-03-02",  
+> "isActive": true  
+> }
 
 ## Link del deploy en Render.
 
